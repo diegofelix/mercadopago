@@ -34,7 +34,7 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "MercadoPago\\": "app/"
         },
         "classmap": [
             "database/seeds",
