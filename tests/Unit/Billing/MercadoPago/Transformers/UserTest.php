@@ -42,4 +42,31 @@ class UserTest extends TestCase
 		// Assertions
 		$this->assertSame($expected, $result);
 	}
+
+	public function testSingleShouldReturnEmptyAddress(): void
+	{
+		// Set
+		$transformer = new UserTransformer();
+		$user = m::mock(factory(User::class)->make());
+		$expected = [
+			'first_name' => 'Diego Felix',
+			'email' => 'diegofelix@github.com',
+			'identification' => [
+				'type' => 'cpf',
+				'number' => '32132132145',
+			],
+			'address' => [],
+		];
+
+		// Expectations
+		$user->expects()
+			->address()
+			->andReturnNull();
+
+		// Actions
+		$result = $transformer->single($user);
+
+		// Assertions
+		$this->assertSame($expected, $result);
+	}
 }

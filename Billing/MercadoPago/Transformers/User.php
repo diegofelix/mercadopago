@@ -21,7 +21,9 @@ class User
 
 	private function transformAddress(UserModel $user): array
 	{
-		$address = $user->address();
+		if (!$address = $user->address()) {
+			return [];
+		}
 
 		return [
 			'zip_code' => $address->zip_code,
