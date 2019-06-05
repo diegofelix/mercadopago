@@ -1,10 +1,10 @@
 <?php
 
+use Billing\MercadoPago\Transformers\Address;
 use Billing\MercadoPago\Transformers\User as UserTransformer;
-use MercadoPago\Address;
 use MercadoPago\User;
-use Tests\TestCase;
 use Mockery as m;
+use Tests\TestCase;
 
 class UserTest extends TestCase
 {
@@ -12,8 +12,8 @@ class UserTest extends TestCase
 	{
 		// Set
 		$transformer = new UserTransformer();
-		$user = m::mock(factory(User::class)->make());
-		$address = factory(Address::class)->make();
+		$user = factory(User::class)->make();
+		$address = $this->instance(Address::class, m::mock(Address::class));
 		$expected = [
 			'first_name' => 'Diego Felix',
 			'email' => 'diegofelix@github.com',
@@ -22,46 +22,14 @@ class UserTest extends TestCase
 				'number' => '32132132145',
 			],
 			'address' => [
-				'zip_code' => 12345,
-				'street_name' => 'some street name',
-				'street_number' => 123,
-				'neighborhood' => 'neighborhood',
-				'city' => 'sao paulo',
-				'federal_unit' => 'sao paulo',
+				'user' => 'address',
 			],
 		];
 
 		// Expectations
-		$user->expects()
-			->address()
-			->andReturn($address);
-
-		// Actions
-		$result = $transformer->single($user);
-
-		// Assertions
-		$this->assertSame($expected, $result);
-	}
-
-	public function testSingleShouldReturnEmptyAddress(): void
-	{
-		// Set
-		$transformer = new UserTransformer();
-		$user = m::mock(factory(User::class)->make());
-		$expected = [
-			'first_name' => 'Diego Felix',
-			'email' => 'diegofelix@github.com',
-			'identification' => [
-				'type' => 'cpf',
-				'number' => '32132132145',
-			],
-			'address' => [],
-		];
-
-		// Expectations
-		$user->expects()
-			->address()
-			->andReturnNull();
+		$address->expects()
+			->single($user)
+			->andReturn(['user' => 'address']);
 
 		// Actions
 		$result = $transformer->single($user);

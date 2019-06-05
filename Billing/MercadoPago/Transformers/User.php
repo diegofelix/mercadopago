@@ -21,17 +21,6 @@ class User
 
 	private function transformAddress(UserModel $user): array
 	{
-		if (!$address = $user->address()) {
-			return [];
-		}
-
-		return [
-			'zip_code' => $address->zip_code,
-			'street_name' => $address->street,
-			'street_number' => $address->number,
-			'neighborhood' => $address->neighborhood,
-			'city' => $address->city,
-			'federal_unit' => $address->state,
-		];
+		return app(Address::class)->single($user);
 	}
 }
