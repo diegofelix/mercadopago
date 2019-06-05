@@ -5,7 +5,6 @@ namespace MercadoPago;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use MercadoPago\Address;
 
 class User extends Authenticatable
 {
