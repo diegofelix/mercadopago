@@ -6,6 +6,16 @@ use MercadoPago\User as UserModel;
 
 class User
 {
+	/**
+	 * @var Address Transformer
+	 */
+	protected $address;
+
+	public function __construct(Address $address)
+	{
+		$this->address = $address;
+	}
+
 	public function single(UserModel $user): array
 	{
 		return [
@@ -15,12 +25,7 @@ class User
 				'type' => 'cpf',
 				'number' => $user->cpf,
 			],
-			'address' => $this->transformAddress($user),
+			'address' => $this->address->single($user),
 		];
-	}
-
-	private function transformAddress(UserModel $user): array
-	{
-		return app(Address::class)->single($user);
 	}
 }

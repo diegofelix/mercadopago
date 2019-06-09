@@ -1,0 +1,449 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"b",
+				"Bucket"
+			],
+			[
+				"add",
+				"addressModel"
+			],
+			[
+				"expet",
+				"expects"
+			],
+			[
+				"ap",
+				"apiResult"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/D/projects/elixir/kv/lib/kv/bucket.ex",
+			"settings":
+			{
+				"buffer_size": 345,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/projects/elixir/kv/test/bucket_test.exs",
+			"settings":
+			{
+				"buffer_size": 497,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "defmodule KV.Registry do\n\tdef start_link(opts) do\n\t\tGenServer.start_link(__MODULE__, :ok, opts)\n\tend\n\n\tdef lookup(server, name) do\n\t\tGenServer.call(server, {:lookup, name})\n\tend\n\n\tdef create(server, name) do\n\t\tGenServer.cast(server, {:create, name})\n\tend\n\n\tdef init(:ok) do\n\t\t{:ok, %{}}\n\tend\n\n\tdef handle_call({:lookup, name}, _from, names) do\n\t\t{:reply, Map.fetch(names, name), names}\n\tend\n\n\tdef handle_cast({:create, name}, names) do\n\t\tif Map.has_key?(names, name) do\n\t\t\t{:noreply, names}\n\t\telse\n\t\t\t{:ok, bucket} = KV.Bucket.start_link([])\n\t\t\t{:noreply, Map.put(names, name, bucket)}\n\t\tend\n\tend\nend",
+			"file": "/D/projects/elixir/kv/lib/kv/registry.ex",
+			"file_size": 629,
+			"file_write_time": 132044648564722290,
+			"settings":
+			{
+				"buffer_size": 600,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 345.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"eli",
+				"Set Syntax: Elixir"
+			],
+			[
+				"elix",
+				"Set Syntax: Elixir"
+			],
+			[
+				"elixir",
+				"Set Syntax: Elixir"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"phpcom",
+				"PHPCompanion:Find Use"
+			],
+			[
+				"theme",
+				"ayu: Activate theme"
+			],
+			[
+				"remove",
+				"Package Control: Remove Repository"
+			],
+			[
+				"remove pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"Elixir",
+				"Set Syntax: Elixir"
+			]
+		],
+		"width": 480.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/projects/elixir/kv",
+		"/D/projects/elixir/kv/test"
+	],
+	"file_history":
+	[
+		"/D/projects/elixir/kv/test/bucket_test.exs",
+		"/D/projects/elixir/kv/test/kv_test.exs",
+		"/D/projects/elixir/kv/lib/kv.ex",
+		"/D/projects/elixir/kv/mix.exs",
+		"/D/projects/php/mp/app/Address.php",
+		"/D/projects/php/mp/app/User.php",
+		"/D/projects/php/mp/tests/Unit/Billing/MercadoPago/Transformers/AddressTest.php",
+		"/D/projects/php/mp/Billing/MercadoPago/Transformers/User.php",
+		"/D/projects/php/mp/Billing/MercadoPago/Transformers/Address.php",
+		"/D/projects/php/mp/vendor/mercadopago/dx-php/src/MercadoPago/Http/CurlRequest.php",
+		"/D/projects/php/mp/vendor/mercadopago/dx-php/src/MercadoPago/RestClient.php",
+		"/D/projects/php/mp/vendor/mercadopago/dx-php/src/MercadoPago/Manager.php",
+		"/D/projects/php/mp/tests/TestCase.php",
+		"/D/projects/php/mp/database/factories/AddressFactory.php",
+		"/D/projects/php/mp/database/factories/UserFactory.php",
+		"/D/projects/php/mp/config/mercadopago.php",
+		"/D/projects/php/mp/.env",
+		"/D/projects/php/mp/vendor/mercadopago/dx-php/src/MercadoPago/SDK.php",
+		"/D/projects/php/mp/vendor/mercadopago/dx-php/src/MercadoPago/Config.php",
+		"/D/projects/php/mp/composer.json",
+		"/D/projects/php/mp/tests/Unit/Billing/MercadoPago/Transformers/UserTest.php",
+		"/D/projects/php/mp/Billing/MercadoPago/Transformers",
+		"/D/projects/php/mp/Billing/MercadoPago/Transformers/user.php",
+		"/D/projects/php/mp/vendor/mercadopago/dx-php/src/MercadoPago/Http/HttpRequest.php",
+		"/D/projects/php/mp/vendor/mercadopago/dx-php/src/MercadoPago/Entities/Shared/Item.php",
+		"/D/projects/php/mp/vendor/mercadopago/dx-php/src/MercadoPago/Entity.php",
+		"/D/projects/php/mp/config/app.php",
+		"/D/projects/php/mp/app/Http/Controllers/Auth/LoginController.php",
+		"/D/projects/php/mp/app/Http/Controllers/Auth/RegisterController.php",
+		"/D/projects/php/mp/app/Http/Controllers/Auth/ForgotPasswordController.php",
+		"/D/projects/php/mp/.gitignore",
+		"/D/projects/php/mp/.editorconfig",
+		"/D/projects/php/mp/index.php",
+		"/D/elixir/simple.exs",
+		"/D/BestMu/TheBestMu/FORMAT.CFG"
+	],
+	"find":
+	{
+		"height": 49.0
+	},
+	"find_in_files":
+	{
+		"height": 170.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"put",
+			"',\n",
+			"\n            ",
+			"/\"\n",
+			"defaultParams",
+			"setData",
+			"jsonData",
+			"getUseriD",
+			"refreshToken()",
+			"set(",
+			"getToken()",
+			"grant_type"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/D/projects/elixir/kv/lib/kv/bucket.ex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 345,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								333,
+								333
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Elixir/Syntaxes/Elixir.tmLanguage"
+						},
+						"translation.x": 11.0,
+						"translation.y": 129.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/D/projects/elixir/kv/test/bucket_test.exs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 497,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								463,
+								463
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Elixir/Syntaxes/Elixir.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 129.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/D/projects/elixir/kv/lib/kv/registry.ex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 600,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								291,
+								291
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Elixir/Syntaxes/Elixir.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 49.0
+	},
+	"input":
+	{
+		"height": 66.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "kv.sublime-project",
+	"replace":
+	{
+		"height": 94.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"bucke_test",
+				"test\\bucket_test.exs"
+			],
+			[
+				"kv_test",
+				"test\\kv_test.exs"
+			],
+			[
+				"mix.e",
+				"mix.exs"
+			],
+			[
+				"KV",
+				"lib\\kv.ex"
+			],
+			[
+				"usertest",
+				"tests\\Unit\\Billing\\MercadoPago\\Transformers\\UserTest.php"
+			],
+			[
+				"user.",
+				"app\\User.php"
+			],
+			[
+				"Trans/user",
+				"Billing\\MercadoPago\\Transformers\\User.php"
+			],
+			[
+				"fact/Userfa",
+				"database\\factories\\UserFactory.php"
+			],
+			[
+				".env",
+				".env"
+			],
+			[
+				"Merc/SDK",
+				"vendor\\mercadopago\\dx-php\\src\\MercadoPago\\SDK.php"
+			],
+			[
+				"Mercao/Entit",
+				"vendor\\mercadopago\\dx-php\\src\\MercadoPago\\Entity.php"
+			],
+			[
+				"MercaPgo/item",
+				"vendor\\mercadopago\\dx-php\\src\\MercadoPago\\Entities\\Shared\\Item.php"
+			],
+			[
+				"config/app",
+				"config\\app.php"
+			],
+			[
+				"AuthController",
+				"app\\Http\\Controllers\\Auth\\LoginController.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 345.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

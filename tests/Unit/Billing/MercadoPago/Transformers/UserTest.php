@@ -11,9 +11,9 @@ class UserTest extends TestCase
 	public function testSingle(): void
 	{
 		// Set
-		$transformer = new UserTransformer();
+		$address = m::mock(Address::class);
+		$transformer = new UserTransformer($address);
 		$user = factory(User::class)->make();
-		$address = $this->instance(Address::class, m::mock(Address::class));
 		$expected = [
 			'first_name' => 'Diego Felix',
 			'email' => 'diegofelix@github.com',
