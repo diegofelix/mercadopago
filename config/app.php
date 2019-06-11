@@ -174,7 +174,7 @@ return [
         // MercadoPago\Providers\BroadcastServiceProvider::class,
         MercadoPago\Providers\EventServiceProvider::class,
         MercadoPago\Providers\RouteServiceProvider::class,
-
+        Billing\BillingServiceProvider::class,
     ],
 
     /*
