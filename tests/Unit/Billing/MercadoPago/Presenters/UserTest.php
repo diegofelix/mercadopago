@@ -1,7 +1,7 @@
 <?php
 
-use Billing\MercadoPago\Transformers\Address;
-use Billing\MercadoPago\Transformers\User as UserTransformer;
+use Billing\MercadoPago\Presenters\Address;
+use Billing\MercadoPago\Presenters\User as UserTransformer;
 use MercadoPago\User;
 use Mockery as m;
 use Tests\TestCase;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Billing\MercadoPago\Transformers;
+namespace Billing\MercadoPago\Presenters;
 
 use MercadoPago\User;
 

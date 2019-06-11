@@ -1,6 +1,6 @@
 <?php
 
-use Billing\MercadoPago\Transformers\Address;
+use Billing\MercadoPago\Presenters\Address;
 use MercadoPago\Address as AddressModel;
 use MercadoPago\User;
 use Mockery as m;
