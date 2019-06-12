@@ -3,6 +3,7 @@
 namespace Billing;
 
 use Billing\MercadoPago\Api\Client;
+use Billing\MercadoPago\PaymentMethods\Factory;
 use GuzzleHttp\Client as GuzzleHttp;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
@@ -20,7 +21,9 @@ class BillingServiceProvider extends ServiceProvider implements DeferrableProvid
                 ],
             ]);
 
-            return new Client($http);
+            $factory = new Factory();
+
+            return new Client($http, $factory);
         });
     }
 

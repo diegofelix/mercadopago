@@ -1,8 +1,8 @@
 <?php
 
-namespace Billing\MercadoPago\PaymentTypes;
+namespace Billing\MercadoPago\PaymentMethods;
 
-abstract class AbstractPaymentType
+abstract class AbstractPaymentMethod implements PaymentMethodInterface
 {
 	/**
 	 * @var string Type of payment method (e.g: bolbradesco).
@@ -75,22 +75,22 @@ abstract class AbstractPaymentType
 	 */
 	protected $processing_modes;
 
-	public function __construct(array $paymentType)
+	public function __construct(array $paymentMethod)
 	{
-		$this->id = $paymentType->id;
-		$this->name = $paymentType->name;
-		$this->payment_type_id = $paymentType->payment_type_id;
-		$this->status = $paymentType->status;
-		$this->secure_thumbnail = $paymentType->secure_thumbnail;
-		$this->thumbnail = $paymentType->thumbnail;
-		$this->deferred_capture = $paymentType->deferred_capture;
-		$this->settings = $paymentType->settings;
-		$this->additional_info_needed = $paymentType->additional_info_needed;
-		$this->min_allowed_amount = $paymentType->min_allowed_amount;
-		$this->max_allowed_amount = $paymentType->max_allowed_amount;
-		$this->accreditation_time = $paymentType->accreditation_time;
-		$this->financial_institutions = $paymentType->financial_institutions;
-		$this->processing_modes = $paymentType->processing_modes;
+		$this->id = $paymentMethod['id'];
+		$this->name = $paymentMethod['name'];
+		$this->payment_type_id = $paymentMethod['payment_type_id'];
+		$this->status = $paymentMethod['status'];
+		$this->secure_thumbnail = $paymentMethod['secure_thumbnail'];
+		$this->thumbnail = $paymentMethod['thumbnail'];
+		$this->deferred_capture = $paymentMethod['deferred_capture'];
+		$this->settings = $paymentMethod['settings'];
+		$this->additional_info_needed = $paymentMethod['additional_info_needed'];
+		$this->min_allowed_amount = $paymentMethod['min_allowed_amount'];
+		$this->max_allowed_amount = $paymentMethod['max_allowed_amount'];
+		$this->accreditation_time = $paymentMethod['accreditation_time'];
+		$this->financial_institutions = $paymentMethod['financial_institutions'];
+		$this->processing_modes = $paymentMethod['processing_modes'];
 	}
 
 	public function getId(): string
@@ -162,5 +162,4 @@ abstract class AbstractPaymentType
 	{
 		return $this->processing_modes;
 	}
-
 }
