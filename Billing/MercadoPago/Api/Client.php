@@ -20,6 +20,6 @@ class Client
 	{
 		$response = $this->http->get('payment_methods');
 
-		dd(json_decode($response->getBody()->getContents()));
+		dd(json_decode($response->getBody()->getContents(), true));
 	}
 }
